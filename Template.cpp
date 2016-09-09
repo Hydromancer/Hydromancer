@@ -39,6 +39,8 @@ private:
 	RobotDrive *Kinetic = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
 	
 // Just because.	
+//See https://wpilib.screenstepslive.com/s/4485/m/13809/l/230372-jaguar-speed-controllers (or other docs c++)
+//"Using Position Control" (or other c++ docs)
 	sus1.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
 	sus2.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
 	sus3.SetPositionMode(CANJaguar::kPotentiometer, 2000, 0, 0);
@@ -104,6 +106,14 @@ private:
 		SmartDashboard::PutNumber("frontLeft Volts", (frontLeft->GetOutputVoltage()));
 		SmartDashboard::PutNumber("frontRight Volts", (frontRight->GetOutputVoltage()));
 //		Other values not needed shooter, arm, intake
+		SmartDashboard::PutNumber("shooter Volts", (shooter->GetOutputVoltage()));
+		SmartDashboard::PutNumber("arm Volts", (arm->GetOutputVoltage()));
+		SmartDashboard::PutNumber("intake Volts", (intake->GetOutputVoltage()));
+//		Suspension Dashboard		
+		SmartDashboard::PutNumber("sus1 Position", (sus1->GetPosition()));
+		SmartDashboard::PutNumber("sus2 Position", (sus2->GetPosition()));
+		SmartDashboard::PutNumber("sus3 Position", (sus3->GetPosition()));
+		SmartDashboard::PutNumber("sus4 Position", (sus4->GetPosition()));
 		
 //http://first.wpi.edu/FRC/roborio/stable/docs/cpp/classRobotDrive.html#a00f3c6f7906685fe2f98ceaa8bb7e188
 //		Consider using RobotDrive->Drive(arg1, arg2);
@@ -127,6 +137,11 @@ private:
 		SmartDashboard::PutNumber("shooter Volts", (shooter->GetOutputVoltage()));
 		SmartDashboard::PutNumber("arm Volts", (arm->GetOutputVoltage()));
 		SmartDashboard::PutNumber("intake Volts", (intake->GetOutputVoltage()));
+//		Suspension Dashboard		
+		SmartDashboard::PutNumber("sus1 Position", (sus1->GetPosition()));
+		SmartDashboard::PutNumber("sus2 Position", (sus2->GetPosition()));
+		SmartDashboard::PutNumber("sus3 Position", (sus3->GetPosition()));
+		SmartDashboard::PutNumber("sus4 Position", (sus4->GetPosition()));
 
 
 //		TankDrive? Fakes?
