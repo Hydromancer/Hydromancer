@@ -1,7 +1,12 @@
+// CHANGES
+// Converted to C++
+// Better Vision Processing (Use in tandem with RoboRealm or OpenCV)
+// Added Data to Dashboard
+// Considering using "Fake" system
+
+
 #include "WPILib.h"
 #include <cmath>
-
-// Tank Drive?
 
 class Robot: public IterativeRobot
 {
