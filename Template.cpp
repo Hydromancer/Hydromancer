@@ -4,6 +4,8 @@
 // Added Data to Dashboard
 // Considering using "Fake" system
 
+//Check for pointer/other syntactic errors
+
 
 #include "WPILib.h"
 #include <cmath>
@@ -46,15 +48,15 @@ private:
 // Just because.	
 //See https://wpilib.screenstepslive.com/s/4485/m/13809/l/230372-jaguar-speed-controllers (or other docs c++)
 //"Using Position Control" (or other c++ docs)
-	sus1.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
-	sus2.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
-	sus3.SetPositionMode(CANJaguar::kPotentiometer, 2000, 0, 0);
-	sus4.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0);
+	sus1->SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
+	sus2->SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
+	sus3->SetPositionMode(CANJaguar::kPotentiometer, 2000, 0, 0);
+	sus4->SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0);
 	
-	sus1.EnableControl();
-	sus2.EnableControl();
-	sus3.EnableControl();
-	sus4.EnableControl();
+	sus1->EnableControl();
+	sus2->EnableControl();
+	sus3->EnableControl();
+	sus4->EnableControl();
 
 	CANJaguar *shooter = new CANJaguar(30);
 	CANJaguar *arm = new CANJaguar(31);
