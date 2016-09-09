@@ -10,9 +10,8 @@ private:
 	Image *frame;
 	IMAQdxError imaqError;
 
-	void RobotInit() {
-
-
+	void RobotInit() 
+	{
 		frame = imaqCreateImage(IMAQ_IMAGE_RGB, 0);
 		imaqError = IMAQdxOpenCamera("cam1", IMAQdxCameraControlModeController, &session);
 		if(imaqError != IMAQdxErrorSuccess) {
@@ -27,10 +26,10 @@ private:
 	}
 
 	void DisabledPeriodic() override
-  { 
+	{ 
 		IMAQdxGrab(session, frame, true, NULL);
 		CameraServer::GetInstance()->SetImage(frame);
-  }
+  	}
 
 	void AutonomousInit()
 	{
