@@ -39,10 +39,10 @@ private:
 	RobotDrive *Kinetic = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
 	
 // Just because.	
-	sus1.SetPositionMode(CANJaguar.kPotentiometer, -2000, -0, -0.0);
-	sus2.SetPositionMode(CANJaguar.kPotentiometer, -2000, -0, -0.0);
-	sus3.SetPositionMode(CANJaguar.kPotentiometer, 2000, 0, 0);
-	sus4.SetPositionMode(CANJaguar.kPotentiometer, -2000, -0, -0);
+	sus1.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
+	sus2.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0.0);
+	sus3.SetPositionMode(CANJaguar::kPotentiometer, 2000, 0, 0);
+	sus4.SetPositionMode(CANJaguar::kPotentiometer, -2000, -0, -0);
 	
 	sus1.EnableControl();
 	sus2.EnableControl();
@@ -78,6 +78,9 @@ private:
 //		(Scheduler::GetInstance())::run();
 		IMAQdxGrab(session, frame, true, NULL);
 		CameraServer::GetInstance()->SetImage(frame);
+		
+// Dashboard needed? List:
+//		SmartDashboard::PutNumber(blah,blah2);
   	}
 
 
@@ -93,6 +96,14 @@ private:
 //		(Scheduler::GetInstance())::run();
 		IMAQdxGrab(session, frame, true, NULL);
 		CameraServer::GetInstance()->SetImage(frame);
+
+
+//		If it matters...		
+		SmartDashboard::PutNumber("rearLeft Volts", (rearLeft->GetOutputVoltage()));
+		SmartDashboard::PutNumber("rearRight Volts", (rearRight->GetOutputVoltage()));
+		SmartDashboard::PutNumber("frontLeft Volts", (frontLeft->GetOutputVoltage()));
+		SmartDashboard::PutNumber("frontRight Volts", (frontRight->GetOutputVoltage()));
+//		Other values not needed shooter, arm, intake
 		
 //http://first.wpi.edu/FRC/roborio/stable/docs/cpp/classRobotDrive.html#a00f3c6f7906685fe2f98ceaa8bb7e188
 //		Consider using RobotDrive->Drive(arg1, arg2);
@@ -108,9 +119,19 @@ private:
 		IMAQdxGrab(session, frame, true, NULL);
 		CameraServer::GetInstance()->SetImage(frame);
 
-//		TankDrive?
+		SmartDashboard::PutNumber("rearLeft Volts", (rearLeft->GetOutputVoltage()));
+		SmartDashboard::PutNumber("rearRight Volts", (rearRight->GetOutputVoltage()));
+		SmartDashboard::PutNumber("frontLeft Volts", (frontLeft->GetOutputVoltage()));
+		SmartDashboard::PutNumber("frontRight Volts", (frontRight->GetOutputVoltage()));
+		
+		SmartDashboard::PutNumber("shooter Volts", (shooter->GetOutputVoltage()));
+		SmartDashboard::PutNumber("arm Volts", (arm->GetOutputVoltage()));
+		SmartDashboard::PutNumber("intake Volts", (intake->GetOutputVoltage()));
+
+
+//		TankDrive? Fakes?
 //		second arg not needed?
-		robotDrive->ArcadeDrive(stick1, false);
+		Kinetic->ArcadeDrive(stick1, false);
 	
 	
 //		Precalculated
