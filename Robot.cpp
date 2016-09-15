@@ -5,6 +5,7 @@
 // Considering using "Fake" system
 
 //Check for pointer/other syntactic errors
+//Create "y = mx + b" for measuring angle with potentiometers?
 
 /*
 Experiments:
