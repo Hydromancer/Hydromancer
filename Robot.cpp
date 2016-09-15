@@ -1,6 +1,6 @@
 // CHANGES
 // Converted to C++
-// Better Vision Processing (Use in tandem with RoboRealm or OpenCV)
+// Better Vision Processing (Use in tandem with RoboRealm, OpenCV, or GRIP)
 // Added Data to Dashboard
 // Considering using "Fake" system
 
