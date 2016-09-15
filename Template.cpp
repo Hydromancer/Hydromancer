@@ -20,12 +20,12 @@ private:
 	Joystick *stick3 = new Joystick(2);
 	
 //Fake Land
-/*
+//
 	TalonSRX *Fake_rearRight = new TalonSRX(1);
 	TalonSRX *Fake_rearLeft = new TalonSRX(2);
 	TalonSRX *Fake_frontLeft = new TalonSRX(3);
 	TalonSRX *Fake_frontRight = new TalonSRX(4);
-*/ 
+//
 
 	CANTalon *rearRight = new CANTalon(41);
 	CANTalon *rearLeft = new CANTalon(42);
@@ -43,7 +43,7 @@ private:
   	frontLeft->SetInverted(true);
 	frontRight->SetInverted(true);
 	
-	RobotDrive *Kinetic = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+	RobotDrive *Kinetic = new RobotDrive(Fake_frontLeft, Fake_rearLeft, Fake_frontRight, Fake_rearRight);
 	
 // Just because.	
 //See https://wpilib.screenstepslive.com/s/4485/m/13809/l/230372-jaguar-speed-controllers (or other docs c++)
