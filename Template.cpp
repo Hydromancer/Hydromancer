@@ -6,6 +6,14 @@
 
 //Check for pointer/other syntactic errors
 
+/*
+Experiments:
+https://www.chiefdelphi.com/forums/showthread.php?t=143939
+https://wpilib.screenstepslive.com/s/4485/m/50711/l/479908-reading-array-values-published-by-networktables
+https://github.com/WPIRoboticsProjects/GRIP/wiki/Tutorial:-Run-GRIP-from-a-CPP,-Java,-or-LabVIEW-FRC-program
+http://pastebin.com/WNrj4aUe
+https://www.chiefdelphi.com/forums/showthread.php?t=141283
+*/
 
 #include "WPILib.h"
 #include <cmath>
@@ -57,7 +65,7 @@ private:
 	sus2->EnableControl();
 	sus3->EnableControl();
 	sus4->EnableControl();
-
+// SetFeedbackDevice(arg) for the above?
 	CANJaguar *shooter = new CANJaguar(30);
 	CANJaguar *arm = new CANJaguar(31);
 	Talon *intake = new Talon(0);
@@ -125,10 +133,17 @@ private:
 //http://first.wpi.edu/FRC/roborio/stable/docs/cpp/classRobotDrive.html#a00f3c6f7906685fe2f98ceaa8bb7e188
 //		Consider using RobotDrive->Drive(arg1, arg2);
 
+
+
+//For actual code, change control mode to position?
 	}
 
 	void TeleopInit() 
 	{
+		frontLeft->SetControlMode(CANTalon::kPercentVbus);
+		rearLeft->SetControlMode(CANTalon::kPercentVbus);
+		frontRight->SetControlMode(CANTalon::kPercentVbus);
+		rearRight->SetControlMode(CANTalon::kPercentVbus);
 
 	}
 	void TeleopPeriodic() 
@@ -154,7 +169,10 @@ private:
 //		TankDrive? Fakes?
 //		second arg not needed?
 		Kinetic->ArcadeDrive(stick1, false);
-	
+		frontLeft->Set(Fake_frontLeft->Get());
+		rearLeft->Set(Fake_rearLeft->Get());
+		frontRight->Set(Fake_frontRight->Get());
+		rearRight->Set(Fake_rearRight->Get());
 	
 //		Precalculated
 //		based of potentiometer table
